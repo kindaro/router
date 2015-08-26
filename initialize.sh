@@ -40,10 +40,14 @@ logic ()
     git add README.md
     git add gulpfile.{js,coffee}
     git add src
+    git rm "$0"
     git commit -m "Automatic initial commit. All things set up."
     
     # Synchronize.
-    curl -u "$username" https://api.github.com/user/repos -d '{"name":"'"$name"'"}' >/dev/null
+    curl                                                             \
+        -u "$username" https://api.github.com/user/repos             \
+        -d '{"name":"'"$name"'", "description": "'"$description"'"}' \
+        > /dev/null
     git remote add origin "git@github.com:${username}/${name}.git"
     git push --set-upstream origin master
 
@@ -92,5 +96,4 @@ else # Batch.
     logic "$name" "$description" "$username"
 fi
 
-rm "$0"
 exit # In any way.
