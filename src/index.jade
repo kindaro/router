@@ -5,7 +5,22 @@ html(lang='en' ng-app='app')
         include _include/head
     body
         header
-            +blocklinks
+            +blocklinks.list_horizontal
+                +blocklink()(href='#/lalafa', active, ng-something)
+                    p I am an active blocklink to lalafa
+                +blocklink()(href='#/x')
+                    p I am a blocklink to x
+                +blocklink()(href='/#/z')
+                    p Я русская ссылка на Z.
+                +blocklinks_indent
+                    +blocklinks.list_horizontal
+                        +blocklink()(href='#/lalafa', active, ng-something)
+                            p I am the first in inner list.
+                        +blocklink()(href='#/x')
+                            p I am the second.
+                        +blocklink()(href='/#/z')
+                            p I am third.
+            +blocklinks.list_vertical
                 +blocklink()(href='#/lalafa', active, ng-something)
                     p I am an active blocklink to lalafa
                 +blocklink()(href='#/x')

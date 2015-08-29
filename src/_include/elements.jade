@@ -1,5 +1,5 @@
 mixin blocklinks()
-    ul.blocklinks
+    ul.blocklinks&attributes(attributes)
         block
 
 mixin blocklink()
@@ -14,4 +14,8 @@ mixin blocklink()
             span.filler
         .content
             block
+
+mixin blocklinks_indent()
+    li
+        block
 

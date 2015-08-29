@@ -1,5 +1,14 @@
 
-understroke(color, weight)
+stroke_left(color, weight)
+    content ' '
+    position absolute
+    width 100%
+    height 100%
+    left 0
+    bottom 0
+    border-left solid color weight
+
+stroke_bottom(color, weight)
     content ' '
     position absolute
     width 100%
@@ -19,13 +28,23 @@ understroke(color, weight)
     left  0 
     z-index  1 
 
-.blocklink.active .content:after
-    understroke(red, 2px)
+.blocklinks.list_vertical > .blocklink.active > .content:after
+    stroke_left(red, 2px)
 
-.blocklink:hover:not(.active) .content:after
-    understroke(blue, 2px)
+.blocklinks.list_vertical > .blocklink:hover:not(.active) > .content:after
+    stroke_left(blue, 2px)
+
+.blocklinks.list_horizontal > .blocklink.active > .content:after
+    stroke_bottom(red, 2px)
+
+.blocklinks.list_horizontal > .blocklink:hover:not(.active) > .content:after
+    stroke_bottom(blue, 2px)
 
 .blocklinks
     list-style-type none
-.blocklinks li
+
+.list_vertical > li
+    display block
+
+.list_horizontal > li
     display inline-block
