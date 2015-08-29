@@ -1,8 +1,18 @@
+mixin link(url, isActive)
+    li.blocklink(class= isActive ? 'active' : '')
+        a(href=url)
+            span.filler
+        dl.content
+            block
+
 doctype html
-html(lang='en')
+html(lang='en' ng-app='app')
     head
         include _include/head
     body
         header
-        main
+            ul
+                +link('#lalafa', true)
+                    p I am a blocklink to lalafa
+        main(ui-view)
         footer
