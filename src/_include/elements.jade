@@ -2,9 +2,9 @@ mixin blocklinks()
     ul.blocklinks
         block
 
-mixin blocklink(url, isActive)
-    li.blocklink(class= isActive ? 'active' : '')
-        a(href=url)
+mixin blocklink()
+    li.blocklink(class= attributes.active ? 'active' : '')
+        a(href!=attributes.href)
             span.filler
         .content
             block

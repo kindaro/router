@@ -6,9 +6,11 @@ html(lang='en' ng-app='app')
     body
         header
             +blocklinks
-                +blocklink('#lalafa', true)
+                +blocklink()(href='#/lalafa', active)
                     p I am an active blocklink to lalafa
-                +blocklink('#x')
+                +blocklink()(href='#/x')
                     p I am a blocklink to x
+                +blocklink()(href='/#/z')
+                    p Я русская ссылка на Z.
         main(ui-view)
         footer
