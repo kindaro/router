@@ -3,7 +3,13 @@ mixin blocklinks()
         block
 
 mixin blocklink()
-    li.blocklink(class= attributes.active ? 'active' : '')
+
+    // This allows transferring, say, Angular attributes from the mixin call to the root object.
+    -   attributes_cleansed = JSON.parse (JSON.stringify ( attributes ) )
+    -   delete attributes_cleansed.active
+    -   delete attributes_cleansed.href
+
+    li.blocklink(class= attributes.active ? 'active' : '')&attributes(attributes_cleansed)
         a(href!=attributes.href)
             span.filler
         .content
