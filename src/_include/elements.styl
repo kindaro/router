@@ -1,0 +1,31 @@
+
+understroke(color, weight)
+    content ' '
+    position absolute
+    width 100%
+    height 100%
+    left 0
+    bottom 0
+    border-bottom solid color weight
+
+.blocklink
+    position relative
+
+.blocklink .filler
+    position absolute
+    width 100%
+    height 100%
+    top 0 
+    left  0 
+    z-index  1 
+
+.blocklink.active .content:after
+    understroke(red, 2px)
+
+.blocklink:hover:not(.active) .content:after
+    understroke(blue, 2px)
+
+.blocklinks
+    list-style-type none
+.blocklinks li
+    display inline-block

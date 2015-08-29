@@ -41,7 +41,7 @@ gulp.task('coffee', function() {
 });
 
 gulp.task('styl', function() {
-  return gulp.src('./src/**/*.styl').pipe(stylus({})).pipe(gulp.dest('./build'));
+  return gulp.src(['./src/**/*.styl', '!.src/_*/**/*.styl']).pipe(stylus({})).pipe(gulp.dest('./build'));
 });
 
 gulp.task('yaml', function() {

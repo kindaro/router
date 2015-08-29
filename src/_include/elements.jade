@@ -1,0 +1,8 @@
+
+mixin blocklink(url, isActive)
+    li.blocklink(class= isActive ? 'active' : '')
+        a(href=url)
+            span.filler
+        .content
+            block
+

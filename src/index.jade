@@ -1,18 +1,14 @@
-mixin link(url, isActive)
-    li.blocklink(class= isActive ? 'active' : '')
-        a(href=url)
-            span.filler
-        dl.content
-            block
-
 doctype html
 html(lang='en' ng-app='app')
     head
+        include _include/elements
         include _include/head
     body
         header
-            ul
-                +link('#lalafa', true)
-                    p I am a blocklink to lalafa
+            ul.blocklinks
+                +blocklink('#lalafa', true)
+                    p I am an active blocklink to lalafa
+                +blocklink('#x')
+                    p I am a blocklink to x
         main(ui-view)
         footer

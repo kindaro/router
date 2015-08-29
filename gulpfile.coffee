@@ -34,7 +34,7 @@ gulp.task 'coffee',
 
 gulp.task 'styl',
     ->
-        gulp.src './src/**/*.styl'
+        gulp.src ['./src/**/*.styl', '!.src/_*/**/*.styl']
         .pipe stylus {}
         .pipe gulp.dest './build'
 
